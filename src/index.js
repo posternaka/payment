@@ -1,5 +1,6 @@
 import './assets/styles/main.css';
 import './assets/styles/reset.css';
+import './assets/fonts/fonts.css';
 
 import en from './Localizations/en.json';
 import es from './Localizations/es.json';
@@ -9,11 +10,16 @@ import nl from './Localizations/nl.json';
 import ru from './Localizations/ru.json';
 import zh from './Localizations/zh.json';
 
+const priceInMonth = 9.99;
+const priceInYear = 19.99;
+
 const checkLang = () => {
-    const lang = window.navigator ? (window.navigator.language ||
+    const checkLang = window.navigator ? (window.navigator.language ||
         window.navigator.systemLanguage ||
         window.navigator.userLanguage) : "en";
-    getData(lang.substr(0, 2).toLowerCase());
+    const lang = checkLang.substr(0, 2).toLowerCase();
+    getData(lang);
+    addOrUpdateURLParam(lang);
 } 
 
 const langMap = {
@@ -31,7 +37,7 @@ const createHeader = (restore) => {
     `
 }
 
-const createSection = (title, text1, text2, text3, subtitle1, subtitle2, priceMonth, priceYear, countPriceYear, discount, freeUse, notFreeUse, textBtn) => {
+const createSection = (title, text1, text2, text3, subtitle1, subtitle2, priceMonth, priceYear, countPrice, discount, freeUse, notFreeUse, textBtn) => {
     return `
         <section>
             <div class="wrapper">
@@ -96,11 +102,11 @@ const createSection = (title, text1, text2, text3, subtitle1, subtitle2, priceMo
                             </svg>
                             <div class="position menu-position">
                                 <p class="menu-title">${subtitle1}</p>
-                                <p class="menu-price-total">${priceMonth}</p>
+                                <p class="menu-price-total">$${priceInMonth}</p>
                                 <div class="menu-stripe">
                                     <p class="menu-days">${freeUse}</p>
                                 </div>
-                                <p class="menu-price-month">${countPriceYear}</p>
+                                <p class="menu-price-month">$${priceInMonth/1}</p>
                             </div>
                         </div>
                         <div class="menu-item">
@@ -120,11 +126,11 @@ const createSection = (title, text1, text2, text3, subtitle1, subtitle2, priceMo
                             </div>
                             <div class="position menu-position">
                                 <p class="menu-title">${subtitle2}</p>
-                                <p class="menu-price-total" >${priceYear}</p>
+                                <p class="menu-price-total">$${priceInYear}</p>
                                 <div class="menu-stripe">
                                     <p class="menu-days">${notFreeUse}</p>
                                 </div>
-                                <p class="menu-price-month">${countPriceYear}</p>
+                                <p class="menu-price-month">$${(priceInYear/12).toFixed(2)}</p>
                             </div>
                         </div>
                     </div>
@@ -186,6 +192,13 @@ const toggleActiveCard = () => {
             this.className += " active";
         });
     }
+}
+
+const addOrUpdateURLParam = (value) => {
+    const searchParams = new URLSearchParams(window.location.search);
+    searchParams.set('lang', value)
+    const newRelativePathQuery = window.location.pathname + "?" + searchParams.toString();
+    history.pushState(null, "", newRelativePathQuery)
 }
  
 checkLang();

@@ -1,11 +1,17 @@
 body {
-  background: url('../images/background-full/4.png') ;
-  font-family: "Rubik", Roboto, sans-serif;
-  font-size: 16px;
+  background-image: image-set("../images/background-full/4.png" 1x, "../images/background-full/4@2x.png" 2x, "../images/background-full/4@3x.png" 3x);
+  background-image: -webkit-image-set(url("../images/background-full/4.png") 1x, url("../images/background-full/4@2x.png") 2x, url("../images/background-full/4@3x.png") 3x);
+  background-position: center center;
+  background-repeat: no-repeat; 
+  background-size: cover;
+  font-family: "SF Pro Display", SF Pro Display, sans-serif;
+  font-size: 17px;
+  font-weight: 700;
   padding: 0;
   margin: 0;
   overflow-x: hidden;
   color: #fff;
+  background-color: #212634;
 }
 
 h1,
@@ -26,21 +32,23 @@ p {
 }
 
 img {
-  max-width: 100%;
-  height: auto;
+  height: 100%;
+  width: 100%;
 }
 
 input,
 button {
+  font-family: "SF Pro Display", SF Pro Display, sans-serif;
   border: none;
   background: none;
   outline: none;
   color: #fff;
   font-size: 16px;
-  font-family: "Rubik", Roboto, sans-serif;
 }
 
 a {
+  font-size: 11px;
+  font-weight: 400;
   color: #fff;
   text-decoration: none;
 }
