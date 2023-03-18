@@ -10,12 +10,12 @@
 
 .wrapper-root {
     padding-top: 40px;
-    padding-bottom: 38px;
+    padding-bottom: 20px;
 }
 
 .container {
     margin: 0 auto;
-    max-width: 390px;
+    max-width: 335px;
 }
 
 /* HEADER */
@@ -36,6 +36,228 @@
 
 /* SECTION */
 
+.flex-column {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
 
+.title {
+    margin-top: 153px;
+    margin-bottom: 29px;
+    text-align: center;
+    font-size: 36px;
+    line-height: 42px;
+    font-weight: bold;
+}
+
+.info {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 42px;
+}
+
+.info-item {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    font-size: 17px;
+    gap: 6px;
+}
+
+.menu {
+    display: flex;
+    align-items: center;
+    gap: 23px;
+}
+
+/* menu-menu */
+.menu-item {
+    position: relative;
+    opacity: .5;
+    transition: ease .3s;
+}
+
+.active {
+    transform: scale(1.1);
+    opacity: 1;
+    cursor: pointer;
+}
+
+.menu-card {
+    fill: #495795;
+}
+
+.position {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    right: 0%;
+}
+
+.menu-position {
+    padding: 23px 30px 13px;
+}
+
+.menu-title {
+    font-size: 17px;
+    font-weight: bold;
+    margin-bottom: 18px;
+}
+
+.menu-price-total {
+    font-size: 14px;
+    line-height: 15px;
+    margin-bottom: 7px;
+}
+
+.menu-price-total > span {
+    font-size: 22px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.menu-stripe {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 137px;
+    height: 20px;
+    background-color: #495795;
+    text-align: center;
+    margin-bottom: 11px;
+}
+
+.menu-days {
+    font-size: 14px;
+}
+
+.menu-price-month {
+    font-size: 12px;
+}
+
+.circle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    background-color: #DB0000;
+    position: absolute;
+    top: -1%;
+    right: -1%;
+}
+
+.circle p {
+    font-size: 12px;
+}
+
+
+/* big-menu
+.big-menu-item {
+    position: relative;
+}
+
+.big-menu-item:hover {
+    transform: scale(.9);
+    cursor: pointer;
+}
+
+.big-position {
+    padding: 25px 30px 13px;
+} 
+
+.circle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    background-color: #DB0000;
+    position: absolute;
+    top: -1%;
+    right: -1%;
+}
+
+.circle p {
+    font-size: 12px;
+}
+
+.big-title {
+    font-size: 19px;
+    font-weight: bold;
+    margin-bottom: 21px;
+    line-height: 22px;
+}
+
+.big-price-total {
+    font-size: 15px;
+    line-height: 15px;
+    margin-bottom: 8px;
+}
+
+.big-price-total > span {
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.big-stripe {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 151px;
+    height: 22px;
+    background-color: #495795;
+    text-align: center;
+    margin-bottom: 11px;
+}
+
+.big-days {
+    font-size: 14px;
+    text-transform: uppercase;
+}
+
+.big-price-month {
+    font-size: 13px;
+} */
+
+/* btn */
+.btn {
+    margin-top: 16px;
+    margin-bottom: 16px;
+    padding: 19px 105px;
+    border-radius: 30px;
+    background-color: #3898ec;
+    font-size: 17px;
+    line-height: 17px;
+    cursor: pointer;
+}
 
 /* FOOTER */
+footer {
+    font-size: 11px;
+    line-height: 13px;
+    
+}
+
+.footer-text {
+    font-size: 11px;
+    margin-bottom: 16px;
+    opacity: .5;
+}
+
+.copyright {
+    width: 100%;
+}
+
+.copyright > a {
+    text-decoration: underline;
+    transition: ease .3s;
+}
