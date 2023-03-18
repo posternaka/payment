@@ -43,8 +43,7 @@ const checkLang = () => {
     const checkLang = window.navigator ? (window.navigator.language ||
         window.navigator.systemLanguage ||
         window.navigator.userLanguage) : "en";
-    // const lang = checkLang.substr(0, 2).toLowerCase();
-    const lang = 'ru'
+    const lang = checkLang.substr(0, 2).toLowerCase();
     getData(lang);
     addOrUpdateURLParam(lang);
 } 
