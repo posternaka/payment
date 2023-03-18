@@ -1,3 +1,41 @@
-body {
-    background-color: red;
+.picture {
+    background-image: url('../images/unlimitedDocs.svg');
+    width: 200px;
+    height: 200px;
 }
+
+
+
+/* START MY TEST */
+
+.wrapper-root {
+    padding-top: 40px;
+    padding-bottom: 38px;
+}
+
+.container {
+    margin: 0 auto;
+    max-width: 390px;
+}
+
+/* HEADER */
+
+.flex-row {
+    display: flex;
+    justify-content: space-between;
+}
+
+.flex-row > a {
+    opacity: .6;
+    transition: ease .3s;
+}
+
+.flex-row > a:hover {
+    opacity: 1;
+}
+
+/* SECTION */
+
+
+
+/* FOOTER */
