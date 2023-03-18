@@ -13,11 +13,38 @@ import zh from './Localizations/zh.json';
 const priceInMonth = 9.99;
 const priceInYear = 19.99;
 
+const createStrPrice = (strPrice, type) => {
+    switch(type) {
+        case 'month': 
+            return strPrice.replace('{{price}}', `$${priceInMonth}`);
+
+        case 'year':
+            return strPrice.replace('{{price}}', `$${priceInYear}`);
+        
+        default:
+            return `<strong>$0</strong>`;
+    }
+}
+
+const createTotalPrice = (month = 1, type = 'nothing') => {
+    switch(type) {
+        case 'month': 
+            return `$${priceInMonth/month}`;
+
+        case 'year':
+            return `$${(priceInYear/month).toFixed(2)}`;
+        
+        default:
+            return `<strong>$0</strong>`;
+    }
+}
+
 const checkLang = () => {
     const checkLang = window.navigator ? (window.navigator.language ||
         window.navigator.systemLanguage ||
         window.navigator.userLanguage) : "en";
-    const lang = checkLang.substr(0, 2).toLowerCase();
+    // const lang = checkLang.substr(0, 2).toLowerCase();
+    const lang = 'ru'
     getData(lang);
     addOrUpdateURLParam(lang);
 } 
@@ -90,7 +117,7 @@ const createSection = (title, text1, text2, text3, subtitle1, subtitle2, priceMo
                         </div>
                     </div>
                     <div class="menu">
-                        <div class="menu-item active">
+                        <a href='https://apple.com/ ' class="menu-item active">
                             <svg xmlns="http://www.w3.org/2000/svg" width="147" height="180" viewBox="0 0 147 180">
                                 <g fill="none" fill-opacity=".197" fill-rule="evenodd">
                                     <g fill="#495795" stroke="#495795">
@@ -102,14 +129,14 @@ const createSection = (title, text1, text2, text3, subtitle1, subtitle2, priceMo
                             </svg>
                             <div class="position menu-position">
                                 <p class="menu-title">${subtitle1}</p>
-                                <p class="menu-price-total">$${priceInMonth}</p>
+                                <p class="menu-price-total">${createStrPrice(priceMonth, 'month')}</p>
                                 <div class="menu-stripe">
                                     <p class="menu-days">${freeUse}</p>
                                 </div>
-                                <p class="menu-price-month">$${priceInMonth/1}</p>
+                                <p class="menu-price-month">${createTotalPrice(1, 'month')}</p>
                             </div>
-                        </div>
-                        <div class="menu-item">
+                        </a>
+                        <a href='https://google.com/ ' class="menu-item">
                             <svg xmlns="http://www.w3.org/2000/svg" width="147" height="180" viewBox="0 0 147 180">
                                 <g fill="none" fill-opacity=".197" fill-rule="evenodd">
                                     <g fill="#495795" stroke="#495795">
@@ -126,13 +153,13 @@ const createSection = (title, text1, text2, text3, subtitle1, subtitle2, priceMo
                             </div>
                             <div class="position menu-position">
                                 <p class="menu-title">${subtitle2}</p>
-                                <p class="menu-price-total">$${priceInYear}</p>
+                                <p class="menu-price-total">${createStrPrice(priceYear, 'year')}</p>
                                 <div class="menu-stripe">
                                     <p class="menu-days">${notFreeUse}</p>
                                 </div>
-                                <p class="menu-price-month">$${(priceInYear/12).toFixed(2)}</p>
+                                <p class="menu-price-month">${createTotalPrice(12, 'year')}</p>
                             </div>
-                        </div>
+                        </a>
                     </div>
                     <a href="#" class="btn">${textBtn}</a>
                 </div>
